@@ -9,12 +9,18 @@ tunneling, and an internal port scan. You can't contain everything
 at once, so the real question was which one to stop first, and why.
 
 ## What I did
-- Reviewed the five alerts and ranked them by risk and urgency.
-- Chose the pass-the-hash compromise (a backdoor Domain Admin
-  account) for immediate containment.
-- Planned containment: disable the backdoor account, reset the
-  krbtgt account twice, and isolate the source host while
-  preserving its memory.
+- Analyzed each of the five alerts: source, urgency, assets at risk,
+  possible false positive, correlation with the others, and
+  priority action.
+- Ranked the pass-the-hash compromise of the domain controller
+  (a backdoor Domain Admin account created within seconds) first,
+  because latent risk with no ceiling outweighed damage already done.
+- Chose containment over investigation or notification: disable the
+  backdoor account, reset the krbtgt account twice, and isolate the
+  source host while preserving its memory.
+- Wrote down my assumptions and what I didn't know, such as how the
+  entry point was compromised and how much credential data had
+  been extracted.
 
 ## Tools & methods
 Alert triage, risk prioritization, Active Directory incident
